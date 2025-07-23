@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mensaje del Día</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f9fb;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .card {
+      background: white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      padding: 30px 40px;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 100%;
+      text-align: left;
+    }
+    .mensaje {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+    .mensaje span {
+      font-weight: bold;
+      color: #0077b6;
+    }
+    .emoji {
+      font-size: 22px;
+      margin-right: 6px;
+    }
+    h1 {
+      color: #023e8a;
+      margin-bottom: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>✨ Mensaje del Día</h1>
+    <div class="mensaje"><span class="emoji">🧠</span><span>Frase motivadora:</span> <span id="frase"></span></div>
+    <div class="mensaje"><span class="emoji">❤️</span><span>Amor y amistad:</span> <span id="amor"></span></div>
+    <div class="mensaje"><span class="emoji">💎</span><span>Frase de oro:</span> <span id="energia"></span></div>
+    <div class="mensaje"><span class="emoji">🎲</span><span>Números de la suerte:</span> <span id="numeros"></span></div>
+  </div>
+
+  <script>
+    const frases = [
+      ["Hoy es tu momento", "Ama sin miedo", "El oro está en tu esfuerzo", "12 y 27"],
+      ["Confía en ti", "Abraza fuerte a quien te quiere", "Lo bueno tarda, pero llega", "05 y 91"],
+      ["Nada es imposible", "Hoy alguien pensó en ti", "Si te cuesta, es porque vale la pena", "03 y 67"],
+      // ... agrega hasta 180 frases como esta
+    ];
+
+    const hoy = new Date();
+    const diaDelAño = Math.floor((hoy - new Date(hoy.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24)) % frases.length;
+    const [frase, amor, energia, numeros] = frases[diaDelAño];
+
+    document.getElementById('frase').textContent = frase;
+    document.getElementById('amor').textContent = amor;
+    document.getElementById('energia').textContent = energia;
+    document.getElementById('numeros').textContent = numeros;
+  </script>
+</body>
+</html>
